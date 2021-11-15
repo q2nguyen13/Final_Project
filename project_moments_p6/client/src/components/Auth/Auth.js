@@ -48,10 +48,12 @@ const SignUp = () => {
 
       history.push('/');
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log(error);
     }
   };
 
+  // eslint-disable-next-line no-console
   const googleError = () => console.log('Google Sign In was unsuccessful. Try again later');
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });

@@ -9,6 +9,7 @@ export const getPost = (id) => async (dispatch) => {
 
     dispatch({ type: FETCH_POST, payload: { post: data } });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 };
@@ -21,6 +22,7 @@ export const getPosts = (page) => async (dispatch) => {
     dispatch({ type: FETCH_ALL, payload: { data, currentPage, numberOfPages } });
     dispatch({ type: END_LOADING });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 };
@@ -33,6 +35,7 @@ export const getPostsByCreator = (name) => async (dispatch) => {
     dispatch({ type: FETCH_BY_CREATOR, payload: { data } });
     dispatch({ type: END_LOADING });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 };
@@ -45,6 +48,7 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
     dispatch({ type: FETCH_BY_SEARCH, payload: { data } });
     dispatch({ type: END_LOADING });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 };
@@ -58,6 +62,7 @@ export const createPost = (post, history) => async (dispatch) => {
 
     history.push(`/posts/${data._id}`);
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 };
@@ -68,6 +73,7 @@ export const updatePost = (id, post) => async (dispatch) => {
 
     dispatch({ type: UPDATE, payload: data });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 };
@@ -80,10 +86,12 @@ export const likePost = (id) => async (dispatch) => {
 
     dispatch({ type: LIKE, payload: data });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 };
 
+// eslint-disable-next-line consistent-return
 export const commentPost = (value, id) => async (dispatch) => {
   try {
     const { data } = await api.comment(value, id);
@@ -92,6 +100,7 @@ export const commentPost = (value, id) => async (dispatch) => {
 
     return data.comments;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 };
@@ -102,6 +111,7 @@ export const deletePost = (id) => async (dispatch) => {
 
     dispatch({ type: DELETE, payload: id });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 };
